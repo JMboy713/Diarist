@@ -92,14 +92,24 @@ def generate_image(diary_text, artist_style, emotion, artist_prompt, example_pic
     translated_diary_text = translate_text(diary_text)
     translated_emotion = translate_text(emotion)
 
-    query = (f"Generate a detailed and image focusing on the landscape, objects, and atmosphere described in the diary entry: '{translated_diary_text}'. "
-             f"Accurately reflect the style of {artist_style}, incorporating key characteristics such as color palette, brush strokes, composition, lighting, and texture unique to this artist. "
-             f"The style should reflect the following description: {artist_prompt}. "
-             f"Create an artwork that evokes the feeling and style of the example artwork: {example_picture}. "
-             f"Focus on emphasizing the essential elements mentioned in the diary, including: {keywords}. but do not include any word or text in the image. "
-             f"Reflect the emotion '{translated_emotion}' throughout the painting, capturing the mood and tone described in the diary entry. "
-             f"Ensure the image captures the essence of the diary entry without adding any additional details or elements not present in the text. "
-             f"Avoid including any people in the image, and strictly adhere to copyright and content policies.")
+    base_prompt = (
+        f"Generate a detailed and image focusing on the landscape, objects, and atmosphere described in the diary entry: '{translated_diary_text}'. "
+    )
+
+    style_prompt = (
+        f"Accurately reflect the style of {artist_style}, incorporating key characteristics such as color palette, brush strokes, composition, lighting, and texture unique to this artist. "
+        f"Create an artwork that evokes the feeling and style of the example artwork: {example_picture}. "
+        f"The style should reflect the following description: {artist_prompt}. "
+    )
+    
+    detailed_prompt = (
+        f"Focus on emphasizing the essential elements mentioned in the diary, including: {keywords}. but do not include any word or text in the image. "
+        f"Ensure the image captures the essence of the diary entry without adding any additional details or elements not present in the text. "
+        f"Use a color scheme and lighting that reflects the mood of '{translated_emotion}', creating an ambiance that resonates with the diary's tone. "
+        f"Avoid including any people in the image, and strictly adhere to copyright and content policies."
+    )
+
+    query = f"{base_prompt} {style_prompt} {detailed_prompt}"
 
     response = client.images.generate(
         model="dall-e-3",
