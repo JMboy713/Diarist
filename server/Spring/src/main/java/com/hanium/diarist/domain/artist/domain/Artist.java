@@ -18,7 +18,7 @@ public class Artist extends BaseEntity {
     @Column(nullable = false)
     private String artistName;
 
-    @Column(nullable = false,length = 1000)
+    @Column(nullable = false,length = 3000)
     private String artistPrompt;
 
     @Column(nullable = false)
@@ -34,18 +34,24 @@ public class Artist extends BaseEntity {
     @Column(nullable = false)
     private String examplePicture;
 
+    private String detailPeriod;
+
+    private String examples;
+
 
     @Builder(access = AccessLevel.PRIVATE)
-    public Artist(String artistName, String artistPrompt, Period period, String description, String artistPicture,String examplePicture) {
+    public Artist(String artistName, String artistPrompt, Period period, String description, String artistPicture,String examplePicture,String examples,String detailPeriod) {
         this.artistName = artistName;
         this.artistPrompt = artistPrompt;
         this.period = period;
         this.description = description;
         this.artistPicture = artistPicture;
         this.examplePicture = examplePicture;
+        this.detailPeriod = detailPeriod;
+        this.examples = examples;
     }
 
-    public static Artist create(String artistName, String artistPrompt, Period period, String description, String artistPicture,String examplePicture) {
+    public static Artist create(String artistName, String artistPrompt, Period period, String description, String artistPicture,String examplePicture,String examples,String detailPeriod) {
         return Artist.builder()
                 .artistName(artistName)
                 .artistPrompt(artistPrompt)
@@ -53,6 +59,8 @@ public class Artist extends BaseEntity {
                 .description(description)
                 .artistPicture(artistPicture)
                 .examplePicture(examplePicture)
+                .examples(examples)
+                .detailPeriod(detailPeriod)
                 .build();
     }
 

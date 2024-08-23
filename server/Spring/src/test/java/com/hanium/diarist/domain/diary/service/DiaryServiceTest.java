@@ -59,7 +59,7 @@ class DiaryServiceTest {
     void bookmarkDiary() {
         //given
         User user = User.create("a@gmail.com","test", SocialCode.KAKAO );
-        Artist artist = Artist.create("test1","test", Period.CONTEMPORARY, "test","test.png","example.png");
+        Artist artist = Artist.create("test1","test", Period.CONTEMPORARY, "test","test.png","example.png",null,null);
         Emotion emotion = Emotion.create("test", "testPrompt", "test.png");
 
         boolean favorite=true;
@@ -83,7 +83,7 @@ class DiaryServiceTest {
     void BookmarkDiary_DiaryNotFound(){
         // given
         User user = User.create("a@gmail.com","test", SocialCode.KAKAO );
-        Artist artist = Artist.create("test1","test", Period.CONTEMPORARY, "test","test.png","example.png");
+        Artist artist = Artist.create("test1","test", Period.CONTEMPORARY, "test","test.png","example.png",null,null);
         Emotion emotion = Emotion.create("test", "testPrompt", "test.png");
 
         boolean favorite=true;
@@ -105,7 +105,7 @@ class DiaryServiceTest {
     void deleteBookmarkDiary() {
         List<Long> diaryIdList = Arrays.asList(1L, 2L, 3L);
         User user = User.create("a@gmail.com","test", SocialCode.KAKAO );
-        Artist artist = Artist.create("test1","test", Period.CONTEMPORARY, "test","test.png","example.png");
+        Artist artist = Artist.create("test1","test", Period.CONTEMPORARY, "test","test.png","example.png",null,null);
         Emotion emotion = Emotion.create("test", "testPrompt", "test.png");
 
         boolean favorite=true;
@@ -137,7 +137,7 @@ class DiaryServiceTest {
         //given
         long diaryId = 1L;
         User user = User.create("a@gmail.com","test", SocialCode.KAKAO );
-        Artist artist = Artist.create("test1","test", Period.CONTEMPORARY, "test","test.png","example.png");
+        Artist artist = Artist.create("test1","test", Period.CONTEMPORARY, "test","test.png","example.png",null,null);
         Emotion emotion = Emotion.create("test", "testPrompt", "test.png");
 
 
@@ -173,7 +173,7 @@ class DiaryServiceTest {
         long diaryId = 1L;
         long userId = 1L;
         User user = User.create("a@gmail.com", "test", SocialCode.KAKAO);
-        Artist artist = Artist.create("test1", "test", Period.CONTEMPORARY, "test", "test.png", "example.png");
+        Artist artist = Artist.create("test1", "test", Period.CONTEMPORARY, "test", "test.png", "example.png",null,null);
         Emotion emotion = Emotion.create("test", "testPrompt", "test.png");
         boolean favorite = true;
 
@@ -198,7 +198,7 @@ class DiaryServiceTest {
         // Given
         User user = User.create("a@gmail.com", "test", SocialCode.KAKAO);
 
-        Artist artist = Artist.create("test1", "test", Period.CONTEMPORARY, "test", "test.png", "example.png");
+        Artist artist = Artist.create("test1", "test", Period.CONTEMPORARY, "test", "test.png", "example.png",null,null);
 
         Emotion emotion = Emotion.create("test", "testPrompt", "test.png");
 
@@ -238,7 +238,7 @@ class DiaryServiceTest {
         // Given
         User user = User.create("a@gmail.com", "test", SocialCode.KAKAO);
 
-        Artist artist = Artist.create("test1", "test", Period.CONTEMPORARY, "test", "test.png", "example.png");
+        Artist artist = Artist.create("test1", "test", Period.CONTEMPORARY, "test", "test.png", "example.png",null,null);
 
         Emotion emotion = Emotion.create("test", "testPrompt", "test.png");
 
